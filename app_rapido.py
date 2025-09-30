@@ -325,6 +325,10 @@ def download_audio(id_processo):
         return jsonify({'erro': str(e)}), 500
 
 if __name__ == '__main__':
+    # Obter porta das variáveis de ambiente (Render usa PORT)
+    port = int(os.environ.get('PORT', 5000))
+    
     print("🚀 Servidor definitivo na porta 5000...")
     print("💡 Agora com: 4 tentativas + Corte preciso + Anti-bloqueio")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+
+    app.run(host='0.0.0.0', port=port, debug=True)
